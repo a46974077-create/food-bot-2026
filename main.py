@@ -21,6 +21,19 @@ logger = logging.getLogger(__name__)
 async def main():
     db = Database()
     db.init_db()
+    # Создаём маленький веб-сервер для Render
+    async def health(request):
+        return web.Response(text="OK")
+    
+    app = web.Application()
+    app.router.add_get("/", health)
+    
+    runner = web.AppRunner(app)
+    await runner.setup()
+    port = int(os.getenv("PORT", 8080))
+    site = web.TCPSite(runner, "0.0.0.0", port)
+    await site.start()
+    logger.info(f"Веб-сервер запущен на порту {port}")
     logger.info("База данных инициализирована")
     
     bot = Bot(token=BOT_TOKEN)  # Убрал HTML-разметку временно

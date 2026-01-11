@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.env
+*.db
+*.log
+*.xlsx
+*.pdf
+service_account.json
+venv/
+data/bot.db

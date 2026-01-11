@@ -18,6 +18,6 @@ os.makedirs(EXPORT_PATH, exist_ok=True)
 
 CHANNEL_LINK = "https://t.me/neidealniy_nutriciolog"
 GROUP_LINK = "https://t.me/+guNv9c0RxTY5YjRi"
-PERSONAL_LINK = "https://t.me/Ekaterina_andreeva13"   # Google Drive
+PERSONAL_LINK = "https://t.me/Ekaterina_andreeva13" # Google Drive
 SERVICE_ACCOUNT_FILE = "service_account.json"
 GOOGLE_DRIVE_FOLDER_ID = "1zA9vOuVhqyBUHyMoefCcXtLEd1qHnJx7"

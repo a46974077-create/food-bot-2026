@@ -21,19 +21,17 @@ async def main():
     db.init_db()
     logger.info("База данных инициализирована")
     
-    bot = Bot(
-        token=BOT_TOKEN,
-        default=DefaultBotProperties(parse_mode=ParseMode.HTML)
-    )
+    bot = Bot(token=BOT_TOKEN)  # Убрал HTML-разметку временно
     
     storage = MemoryStorage()
     dp = Dispatcher(storage=storage)
     dp.include_router(router)
-    dp.include_router(content_router)  # Добавляем обработчики контента
+    dp.include_router(content_router)
+    
     try:
         await bot.send_message(
             ADMIN_ID,
-            "🤖 Бот успешно запущен!\nВсе системы работают нормально."
+            "Бот запущен."  # Упростил сообщение
         )
     except Exception as e:
         logger.warning(f"Не удалось отправить сообщение админу: {e}")
